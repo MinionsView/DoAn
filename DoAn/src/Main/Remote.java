@@ -25,7 +25,7 @@ public class Remote extends JFrame {
 	private String ip;
 	private JLabel l;
 	private int screen;
-	public Remote(String ip, int screen, int mousemove, int mouseclick) {
+	public Remote(String ip, int screen, int mousemove, int mouseclick, int keyboard) {
 		this.screen = screen;
 		LoadImage loader = new LoadImage();
 		setUndecorated(true);
@@ -57,6 +57,30 @@ public class Remote extends JFrame {
 						out.write((b + "").getBytes());
 					else if (cc == 2)
 						out.write(("4").getBytes());
+				} catch (Exception ex) {
+					System.out.println(ex);
+				}
+			}
+		});
+		
+		addKeyListener(new KeyAdapter() {
+			public void keyPressed(KeyEvent e) {
+				try {
+					Socket client = new Socket(ip, keyboard);
+					OutputStream out = client.getOutputStream();
+					int keycode = e.getKeyCode();
+					out.write(("keypressed#" + keycode).getBytes());
+				} catch (Exception ex) {
+					System.out.println(ex);
+				}
+			}
+
+			public void keyReleased(KeyEvent e) {
+				try {
+					Socket client = new Socket(ip, keyboard);
+					OutputStream out = client.getOutputStream();
+					int keycode = e.getKeyCode();
+					out.write(("keyreleased#" + keycode).getBytes());
 				} catch (Exception ex) {
 					System.out.println(ex);
 				}

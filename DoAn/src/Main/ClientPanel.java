@@ -44,7 +44,7 @@ public class ClientPanel extends JPanel {
 				String ip = textField.getText();
 				if (!ip.isEmpty()) {
 					if (rdbtnRem.isSelected()) {
-						Remote rem = new Remote(ip, frame.getScreen(), frame.getMousemove(), frame.getMouseclick());
+						Remote rem = new Remote(ip, frame.getScreen(), frame.getMousemove(), frame.getMouseclick(), frame.getKeyboard());
 						frame.hide();
 					}
 				}

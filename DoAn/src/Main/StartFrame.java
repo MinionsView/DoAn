@@ -1,6 +1,7 @@
 package Main;
 
 import java.awt.BorderLayout;
+//import de.javasoft.plaf.synthetica.SyntheticaAluOxideLookAndFeel;
 import java.awt.EventQueue;
 import java.awt.image.BufferedImage;
 
@@ -25,7 +26,7 @@ public class StartFrame extends JFrame {
 	private ClientPanel clientPnl;
 	private ServerPanel serverPnl;
 	private static StartFrame frame;
-	public int screen = 9000, mousemove = 9001, mouseclick = 9002;
+	public int screen = 9000, mousemove = 9001, mouseclick = 9002, keyboard = 9003;
 
 	
 	public static void main(String[] args) {
@@ -64,6 +65,14 @@ public class StartFrame extends JFrame {
 
 	public void setMouseclick(int mouseclick) {
 		this.mouseclick = mouseclick;
+	}
+	
+	public int getKeyboard() {
+		return keyboard;
+	}
+
+	public void setKeyboard(int keyboard) {
+		this.keyboard = keyboard;
 	}
 
 	public StartFrame() {

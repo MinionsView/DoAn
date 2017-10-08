@@ -120,7 +120,7 @@ public class ServerPanel extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(chckbxTing.isSelected()){
 			if(rdbtnServerRemote.isSelected()){
-			server = new Server(sf.getScreen(), sf.getMouseclick(),sf.getMousemove());
+			server = new Server(sf.getScreen(), sf.getMouseclick(),sf.getMousemove(), sf.getKeyboard());
 			}
 			btnBtu.setEnabled(false);
 		}
